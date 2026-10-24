@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff9ef">
+  <meta name="description" content="How well do you know the parents-to-be? Play Ayushi and Sumeet's Mommy or Daddy baby-shower game and download your answers.">
+  <title>Mommy or Daddy? · Ayushi &amp; Sumeet</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎃%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main>
+    <article class="card" aria-labelledby="game-title">
+      <img class="clothesline" src="assets/autumn-clothesline.png" width="960" height="440" alt="Watercolor autumn leaves and baby clothes on a clothesline" fetchpriority="high">
+      <header class="card-heading">
+        <p class="eyebrow">GUESS WHO</p>
+        <h1 id="game-title">Mommy or Daddy?</h1>
+        <p class="subtitle">How well do you know the parents-to-be?</p>
+      </header>
+
+      <form id="game" autocomplete="off">
+        <div class="game-heading">
+          <label class="name-label" for="player-name">YOUR NAME</label>
+          <input id="player-name" name="player-name" type="text" maxlength="80" aria-label="Your name" spellcheck="false" enterkeyhint="done">
+          <span class="column-title" id="mom-heading">MOM</span>
+          <span class="column-title" id="dad-heading">DAD</span>
+        </div>
+        <div id="questions"></div>
+        <noscript><p class="noscript">Please enable JavaScript to choose your answers and download your card.</p></noscript>
+
+        <footer class="card-footer">
+          <img class="bear bear-left" src="assets/bear-left.png" width="470" height="464" alt="" aria-hidden="true">
+          <img class="bear bear-right" src="assets/bear-right.png" width="470" height="464" alt="" aria-hidden="true">
+          <div class="score-row">
+            <label for="score">YOUR SCORE</label>
+            <input id="score" name="score" type="text" inputmode="numeric" pattern="[0-9]*" maxlength="2" aria-label="Your score out of 18, optional; fill in after answers are revealed" title="Optional: fill in your score after the answers are revealed">
+            <span>/ 18</span>
+          </div>
+          <p class="closing">A little pumpkin,<br>a lot of love.</p>
+          <p class="parents">AYUSHI &amp; SUMEET</p>
+        </footer>
+      </form>
+    </article>
+
+    <section class="controls" aria-label="Save your game card">
+      <div class="progress-copy">
+        <p id="progress" role="status" aria-live="polite">0 of 18 answered</p>
+        <p class="help">Tap Mom or Dad. Your answers stay on this device.</p>
+      </div>
+      <div class="actions">
+        <button id="reset" class="reset-button" type="button">Start over</button>
+        <button id="download" class="download-button" type="button">
+          <svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M5 16v4h14v-4"/></svg>
+          <span>Download my card</span>
+        </button>
+      </div>
+      <p id="download-status" class="download-status" role="status" aria-live="polite"></p>
+    </section>
+    <p class="footnote">Save your completed card as an image to keep or share.<br>The score is optional; add it when the parents reveal their answers.</p>
+  </main>
+
+  <dialog id="reset-dialog" aria-labelledby="reset-title" aria-describedby="reset-description">
+    <h2 id="reset-title">Start a fresh card?</h2>
+    <p id="reset-description">This will clear your name, answers, and score on this device. Download your card first if you want to keep it.</p>
+    <form method="dialog" class="dialog-actions">
+      <button value="cancel" class="cancel-button">Keep playing</button>
+      <button value="reset" class="download-button">Clear my card</button>
+    </form>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,124 @@
+:root {
+  color-scheme: light;
+  --paper: #fff9ef;
+  --rust: #a95732;
+  --ink: #553b2d;
+  --muted: #796147;
+  --line: #e6d7c2;
+  --gold: #c3974d;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--ink);
+  background: #eee7dc;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+button, input, a { -webkit-tap-highlight-color: transparent; }
+button:focus-visible, input:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }
+main { max-width: 1000px; margin: 32px auto; padding: 0 20px; }
+.card { overflow: hidden; background: var(--paper); box-shadow: 0 4px 36px #553b2d13; }
+.clothesline { display: block; width: 100%; height: auto; }
+.card-heading { position: relative; margin-top: -25px; text-align: center; padding: 0 16px; }
+.eyebrow { margin: 0 0 5px; color: var(--rust); font-size: 13.4px; line-height: 20px; font-weight: 700; letter-spacing: 4.35px; }
+h1 { margin: 0; font: italic 53px/1.17 Georgia, "Times New Roman", serif; color: var(--rust); }
+.subtitle { margin: 9px 0 15px; font: 17px/1.4 Georgia, "Times New Roman", serif; }
+#game { margin: 0; }
+.game-heading, #questions { margin: 0 8.75%; }
+.game-heading { display: grid; grid-template-columns: auto minmax(0, 1fr) 106px 106px; align-items: center; min-height: 31px; padding-bottom: 5px; border-bottom: 1px solid var(--gold); column-gap: 0; }
+.name-label { font-size: 12.6px; font-weight: 700; color: var(--muted); padding: 0 22px 0 2px; }
+#player-name { min-width: 0; width: 100%; height: 26px; padding: 0 4px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; background: transparent; color: var(--ink); font: 18px Georgia, "Times New Roman", serif; }
+.column-title { text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--rust); }
+.question { display: grid; grid-template-columns: 47px minmax(0, 1fr) 106px 106px; align-items: center; min-height: 33.87px; border-bottom: 1px solid var(--line); }
+.question:last-child { border-color: var(--gold); }
+.question-number { color: var(--rust); font-size: 14.5px; font-weight: 700; padding-left: 7px; }
+.question-text { margin: 0; padding: 3px 0; font: 20.15px/1.25 Georgia, "Times New Roman", serif; }
+.choice { display: grid; place-items: center; position: relative; align-self: stretch; min-height: 33px; cursor: pointer; border-radius: 5px; }
+.choice input { appearance: none; -webkit-appearance: none; width: 15px; height: 15px; margin: 0; border: 1.5px solid var(--muted); border-radius: 50%; background: transparent; cursor: pointer; }
+.choice input:checked { border-color: var(--rust); background: var(--rust); box-shadow: inset 0 0 0 3px var(--paper); }
+.choice:has(input:checked) { background: #a957320b; }
+.choice:hover { background: #a9573212; }
+.card-footer { position: relative; min-height: 181px; padding: 21px 0 43px; text-align: center; }
+.bear { position: absolute; width: 20.5%; height: auto; bottom: -12px; pointer-events: none; }
+.bear-left { left: -3px; }
+.bear-right { right: -3px; }
+.score-row { display: flex; justify-content: center; align-items: baseline; gap: 15px; position: relative; }
+.score-row label { font-size: 12.9px; font-weight: 700; color: var(--muted); margin-right: 11px; }
+#score { width: 68px; height: 25px; padding: 0 3px; border: 0; border-bottom: 1px solid var(--line); border-radius: 0; color: var(--ink); background: transparent; text-align: center; font: 20px Georgia, "Times New Roman", serif; }
+.score-row > span { font-size: 16px; }
+.closing { position: relative; margin: 11px 0 12px; color: var(--rust); font: italic 23px/1.4 Georgia, "Times New Roman", serif; }
+.parents { position: relative; margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 1.8px; color: var(--muted); }
+.controls { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; margin: 18px 0 0; padding: 18px 20px; border: 1px solid #d9cab6; border-radius: 12px; background: var(--paper); }
+.progress-copy { flex: 1; }
+#progress { margin: 0; font-size: 14px; font-weight: 650; }
+.help { margin: 5px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.actions { display: flex; align-items: center; gap: 20px; }
+.download-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 46px; padding: 12px 20px; border: 1px solid var(--rust); border-radius: 7px; background: var(--rust); color: #fff9ef; font-size: 14px; font-weight: 600; }
+.download-button:hover { background: #914523; }
+.download-button:disabled { opacity: .65; cursor: wait; }
+.download-button svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.reset-button { padding: 10px 0; border: 0; background: none; color: var(--muted); font-size: 13px; text-decoration: underline; text-underline-offset: 3px; }
+.download-status { flex-basis: 100%; margin: 0; font-size: 13px; line-height: 1.5; }
+.download-status:empty { display: none; }
+.download-status a { color: var(--rust); text-underline-offset: 3px; }
+.footnote { margin: 15px 0 26px; color: var(--muted); font-size: 12px; line-height: 1.7; text-align: center; }
+dialog { max-width: min(440px, calc(100% - 32px)); padding: 28px; border: 1px solid var(--line); border-radius: 14px; color: var(--ink); background: var(--paper); box-shadow: 0 14px 60px #0003; }
+dialog::backdrop { background: #35251966; }
+dialog h2 { margin: 0 0 12px; font: 26px Georgia, serif; }
+dialog p { font-size: 14px; line-height: 1.7; }
+.dialog-actions { display: flex; justify-content: flex-end; align-items: center; gap: 12px; margin-top: 22px; }
+.cancel-button { min-height: 46px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); background: transparent; }
+.noscript { padding: 12px 9%; line-height: 1.5; }
+
+@media (max-width: 850px) {
+  main { max-width: 720px; margin-top: 18px; padding: 0 14px; }
+  .card-heading { margin-top: -15px; }
+  h1 { font-size: clamp(32px, 6vw, 46px); }
+  .eyebrow { font-size: 11px; letter-spacing: 3.4px; }
+  .subtitle { font-size: 15px; }
+  .game-heading, #questions { margin-left: 6%; margin-right: 6%; }
+  .game-heading { grid-template-columns: auto minmax(0, 1fr) 62px 62px; }
+  .name-label { padding-right: 14px; font-size: 11px; }
+  .question { grid-template-columns: 33px minmax(0, 1fr) 62px 62px; min-height: 44px; }
+  .question-number { padding-left: 3px; font-size: 12px; }
+  .question-text { padding: 8px 4px 8px 0; font-size: 17px; line-height: 1.4; }
+  .choice { min-height: 44px; }
+  .choice input { width: 18px; height: 18px; }
+  .column-title { font-size: 11px; }
+  .controls { padding: 16px; }
+}
+
+@media (max-width: 500px) {
+  main { margin: 0 auto; padding: 0; }
+  .card { box-shadow: none; }
+  .card-heading { margin-top: -6px; padding: 0 12px; }
+  .eyebrow { font-size: 9px; line-height: 16px; letter-spacing: 3px; margin-bottom: 3px; }
+  h1 { font-size: clamp(31px, 8.5vw, 42px); line-height: 1.2; }
+  .subtitle { font-size: 13px; margin: 9px 0 20px; }
+  .game-heading, #questions { margin-left: 5%; margin-right: 5%; }
+  .game-heading { grid-template-columns: auto minmax(0, 1fr) 46px 46px; padding-bottom: 8px; }
+  .name-label { font-size: 9px; padding-right: 9px; }
+  #player-name { font-size: 16px; height: 25px; }
+  .column-title { font-size: 10px; letter-spacing: .5px; }
+  .question { grid-template-columns: 26px minmax(0, 1fr) 46px 46px; min-height: 58px; }
+  .question-number { font-size: 11px; padding-left: 1px; }
+  .question-text { font-size: 15.5px; line-height: 1.4; padding: 10px 5px 10px 0; }
+  .choice { min-height: 58px; }
+  .choice input { width: 20px; height: 20px; }
+  .choice input:checked { box-shadow: inset 0 0 0 4px var(--paper); }
+  .card-footer { min-height: 194px; padding-top: 24px; padding-bottom: 38px; }
+  .bear { width: 27%; bottom: -2px; }
+  .score-row { gap: 10px; }
+  .score-row label { font-size: 10px; margin-right: 3px; }
+  #score { width: 44px; font-size: 17px; }
+  .score-row > span { font-size: 14px; }
+  .closing { font-size: 20px; margin-top: 14px; }
+  .parents { font-size: 9px; letter-spacing: 1.4px; }
+  .controls { margin: 0; padding: 20px; border-radius: 0; border-width: 1px 0; gap: 17px; }
+  .progress-copy { flex-basis: 100%; text-align: center; }
+  .actions { width: 100%; justify-content: center; gap: 23px; }
+  .download-status { text-align: center; }
+  .download-button { padding: 12px 16px; font-size: 13px; }
+  .footnote { padding: 0 15px; font-size: 11px; }
+}
