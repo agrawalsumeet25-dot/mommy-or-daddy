@@ -4,6 +4,8 @@ An individual baby-shower game for Ayushi and Sumeet, recreated from the supplie
 
 Guests enter their name, choose Mom or Dad, and download a high-resolution PNG of their completed card. The optional score is filled in manually when the parents reveal their answers. No answer key or automatic scoring is included.
 
+The default Original PDF layout displays the actual rendered PDF with interactive controls overlaid at its original coordinates. The optional Easy reading view reflows the same content for larger text and touch targets on phones. Answers are shared between the views, and downloads always retain the original PDF layout.
+
 This is a standalone static website, independent of CandidPop and other projects. There is no backend, database service, sign-in, analytics, or collection of guest submissions. Names and selections are saved only in that browser's local storage, if available; Start over clears the saved card. Opening the site on another device or browser gives a separate card. Downloading still works with browser storage disabled.
 
 ## Run locally

@@ -19,6 +19,11 @@ button, input, a { -webkit-tap-highlight-color: transparent; }
 button:focus-visible, input:focus-visible { outline: 3px solid var(--rust); outline-offset: 4px; }
 main { max-width: 1000px; margin: 32px auto; padding: 0 20px; }
 .card { overflow: hidden; background: var(--paper); box-shadow: 0 4px 36px #553b2d13; }
+.pdf-sheet { display: none; }
+.view-options { display: flex; justify-content: center; gap: 4px; }
+.view-options button { min-height: 42px; padding: 9px 16px; border: 1px solid transparent; border-radius: 6px; color: var(--muted); background: transparent; font-size: 12px; }
+.view-options button[aria-pressed="true"] { color: var(--rust); border-color: var(--line); background: var(--paper); font-weight: 600; }
+.view-hint { margin: 9px 0 18px; color: var(--muted); font-size: 11px; line-height: 1.6; text-align: center; padding: 0 15px; }
 .clothesline { display: block; width: 100%; height: auto; }
 .card-heading { position: relative; margin-top: -25px; text-align: center; padding: 0 16px; }
 .eyebrow { margin: 0 0 5px; color: var(--rust); font-size: 13.4px; line-height: 20px; font-weight: 700; letter-spacing: 4.35px; }
@@ -121,4 +126,36 @@ dialog p { font-size: 14px; line-height: 1.7; }
   .download-status { text-align: center; }
   .download-button { padding: 12px 16px; font-size: 13px; }
   .footnote { padding: 0 15px; font-size: 11px; }
+  .view-options { padding-top: 14px; }
 }
+
+/* Original mode uses the PDF itself as the visible sheet. Only editable
+   fields and radio controls are overlaid, in the PDF's own coordinates. */
+.card.exact { position: relative; container-type: inline-size; }
+.exact .pdf-sheet { display: block; width: 100%; height: auto; }
+.exact .clothesline, .exact .bear { display: none; }
+.exact .card-heading,
+.exact .name-label,
+.exact .column-title,
+.exact .question-number,
+.exact .question-text,
+.exact .score-row label,
+.exact .score-row > span,
+.exact .closing,
+.exact .parents { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.exact #game { position: absolute; inset: 0; }
+.exact .game-heading,
+.exact #questions,
+.exact .card-footer { position: absolute; inset: 0; display: block; min-height: 0; margin: 0; padding: 0; border: 0; pointer-events: none; }
+.exact #player-name { position: absolute; left: 19.4868%; top: 38.9469%; width: 37.7976%; height: 1.7817%; padding: 0; border: 0; font: 1.9319cqw/1 Georgia, "Times New Roman", serif; pointer-events: auto; }
+.exact .question { position: absolute; top: var(--row-top); left: 0; right: 0; display: block; min-height: 0; height: 2.4944%; border: 0; pointer-events: none; }
+.exact .choice { position: absolute; top: 0; width: 11.0873%; height: 100%; min-height: 0; pointer-events: auto; border-radius: 2px; }
+.exact .choice:nth-last-child(2) { left: 68.3717%; }
+.exact .choice:last-child { left: 79.4590%; }
+.exact .choice input { width: 1.4111cqw; height: 1.4111cqw; border: 0; background: transparent; }
+.exact .choice input:checked { border: .1176cqw solid var(--rust); background: var(--rust); box-shadow: inset 0 0 0 .215cqw var(--paper); }
+.exact .choice:has(input:checked) { background: transparent; }
+.exact .choice:hover { background: #a957320b; }
+.exact .score-row { position: static; }
+.exact #score { position: absolute; left: 46.0282%; top: 87.4093%; width: 7.0556%; height: 2.0193%; padding: 0; border: 0; font: 2.0159cqw/1 Georgia, "Times New Roman", serif; text-align: center; pointer-events: auto; }
+.exact input:focus-visible { outline-width: 2px; outline-offset: 2px; }

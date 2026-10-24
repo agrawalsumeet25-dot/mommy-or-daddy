@@ -29,11 +29,13 @@ const progress = document.querySelector("#progress");
 const downloadButton = document.querySelector("#download");
 const downloadStatus = document.querySelector("#download-status");
 const resetDialog = document.querySelector("#reset-dialog");
+const cardElement = document.querySelector(".card");
 let downloadUrl;
 
 questions.forEach((question, index) => {
   const row = document.createElement("div");
   row.className = "question";
+  row.style.setProperty("--row-top", `${(353.3898 + index * 21) / 841.8898 * 100}%`);
   row.setAttribute("role", "radiogroup");
   row.setAttribute("aria-labelledby", `question-${index}`);
 
@@ -205,3 +207,12 @@ downloadButton.addEventListener("click", async () => {
 
 restoreCard();
 updateCard();
+
+function setLayout(original) {
+  cardElement.classList.toggle("exact", original);
+  document.querySelector("#original-view").setAttribute("aria-pressed", String(original));
+  document.querySelector("#reading-view").setAttribute("aria-pressed", String(!original));
+}
+
+document.querySelector("#original-view").addEventListener("click", () => setLayout(true));
+document.querySelector("#reading-view").addEventListener("click", () => setLayout(false));

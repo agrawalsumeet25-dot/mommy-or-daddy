@@ -12,7 +12,13 @@
 </head>
 <body>
   <main>
-    <article class="card" aria-labelledby="game-title">
+    <div class="view-options" role="group" aria-label="Card layout">
+      <button id="original-view" type="button" aria-pressed="true">Original PDF layout</button>
+      <button id="reading-view" type="button" aria-pressed="false">Easy reading</button>
+    </div>
+    <p class="view-hint">The original design, just like your paper card. For larger text on a phone, choose Easy reading.</p>
+    <article class="card exact" aria-labelledby="game-title">
+      <img class="pdf-sheet" src="assets/card-template.png" width="1786" height="2526" alt="" aria-hidden="true" fetchpriority="high">
       <img class="clothesline" src="assets/autumn-clothesline.png" width="960" height="440" alt="Watercolor autumn leaves and baby clothes on a clothesline" fetchpriority="high">
       <header class="card-heading">
         <p class="eyebrow">GUESS WHO</p>
